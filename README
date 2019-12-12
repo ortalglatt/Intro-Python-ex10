@@ -1,0 +1,62 @@
+yair.shemer, ortal.netzer
+204371983, 312416845
+Yair Shemer, Ortal Glatt
+
+=============================
+=  README    for    ex10:    =
+=============================
+
+
+==================
+=  Description:  =
+==================
+In general, on this exercise we tried to learn how to use OOP better, how to
+decide which attribute belongs to each class and which functions we should
+give to every class.
+We could not do too many functions and attributes to the objects since most of
+the moves were happening through the Screen class and therefore had to be in
+the class of GameRunner. That way, most of the functions are concentrated there
+where the objects are mostly with getters and setters.
+
+
+Special torpedo:
+We tried to do the special torpedo in a way that you still have to make an
+effort in the game and not make it too strong. We chose to launch X rockets
+in a circular way from the ship, and they stay around the ship to protect it.
+The number of rockets X is up to the user and we chose to put 8 as first to not
+make it too slow with memory.
+
+
+======================
+=  Special Comments  =
+======================
+Three decisions we had through the work:
+
+1. The function Clicks_control:
+So this function basically controls all the clicks happening on any iteration
+of the game run. The dilemma was whether do the clicks in the beginning of
+every adding object function, or make them all at one check that runs in every
+iteration and activates the correct calls according to the clicks.
+We decided that making them all at one place makes the code more compact and
+easy to read, whereas if we would have chose the other option, we would have
+one less function and so the code was shorter.
+
+2. Managing the life time of torpedoes:
+We were thinking if life time is an attribute of the object itself or one of
+the game. Eventually we thought that it was easier managing all on dictionaries
+of the torpedoes as keys and it's life time that is growing with each iteration
+as value. We chose that mainly because life time of an object is individual to
+the game and not the object. We could have chose a longer life time for the
+next game, for example.
+Managing it in a list is easier removing the torpedoes and updating the life
+time of each torpedo each iteration.
+
+3. The functions hit_ast:
+The fact that we had a function that manages all collisions on game, given an
+object, with an asteroid, made the decision easier. Since there are 3 type of
+objects that can hit an asteroid, we decided to use the function every time
+we wanted to check if a torpedo (special or not) or the ship hit an asteroid.
+To make the running time shorter we added a condition that checks if an object
+was being hit by an asteroid and break the check. It makes the code a little
+longer but it makes the game runs faster since less checks are being made each
+iteration.
